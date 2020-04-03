@@ -1,18 +1,25 @@
 module World where
 
 import Entity (Entity)
+import Block (Block)
+import Physical (Position)
 
 import Data.Map.Strict as HashMap
 import Data.Time.Clock.POSIX
 import Control.Concurrent
 
+data WorldChunk = WorldChunk {
+    position :: Position,
+    entities :: [Entity],
+    blocks :: [Block]
+} deriving (Show)
 
 data WorldState = WorldState {
   physical :: PhysicalWorldState
 } deriving (Show)
 
 data PhysicalWorldState = PhysicalWorldState {
-  entities :: [Entity]
+  chunks :: [WorldChunk]
 } deriving (Show)
 
 currentTimeMillis :: IO Integer
