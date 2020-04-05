@@ -29,6 +29,9 @@ library
   exposed-modules:
       Lib
       World
+      Entity
+      Physical
+      MapGenerator
   other-modules:
       Paths_GameWorld
   hs-source-dirs:
@@ -37,6 +40,7 @@ library
       base >=4.7 && <5
     , time
     , containers
+    , hsnoise
   default-language: Haskell2010
 
 executable GameWorld-exe
